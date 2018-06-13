@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joyce Varghese\.android\build-cache\6e4fb922bb1fc1c302acf085344e46221c7a2a2e\output\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-22.2.1_68efdd55c07453720d22d424f2fa141045c0f9d2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joyce Varghese\.android\build-cache\6e4fb922bb1fc1c302acf085344e46221c7a2a2e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_39bbcfadada06c6410582710088c5b08b4659fac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-22.2.1_0cf3d10c35e3a85c12847a4ae04cc53252341eed\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joyce Varghese\.android\build-cache\0c7984a8511a36c5b3e7fad7e65325a61bf829b1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1821601ddbec5ff125653097812823388700af74">
+        <dex dex="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_94761209dc0dc8bf57c0a10d4575339dad2006be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_8b316d4cbb8ab3b00acb0324b902acff2522ae43\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joyce Varghese\.android\build-cache\b36deb48fa925bd25afba067ff252b1a9f61a55e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6b5d7e2dc3bdeea38cfada9df7475ee859c877b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d40e5d8a04a6263ceea2536402920353ac738910">
+        <dex dex="C:\Users\Joyce Varghese\Downloads\anagrams_starter\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_fb9b03c1f67016d9f381937b6ffaacd4c2c3035d\classes.dex" />
+    </item>
+
+</items>
