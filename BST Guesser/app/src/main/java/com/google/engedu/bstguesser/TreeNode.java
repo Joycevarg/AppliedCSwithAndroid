@@ -43,22 +43,33 @@ public class TreeNode {
          **  YOUR CODE GOES HERE
          **
          **/
-        if(valueToInsert<=this.value)
-        {
-            if(this.left==null)
-                this.left=new TreeNode(valueToInsert);
+        if (valueToInsert <= this.value) {
+            if (this.left == null)
+                this.left = new TreeNode(valueToInsert);
             else
                 this.left.insert(valueToInsert);
-        }
-        else
-        {
-            if(this.right==null)
-                this.right=new TreeNode(valueToInsert);
+        } else {
+            if (this.right == null)
+                this.right = new TreeNode(valueToInsert);
             else
                 this.right.insert(valueToInsert);
         }
+        if (this.left != null && this.right != null)
+        {
+            if (this.left.height > this.right.height)
+                this.height = this.left.height + 1;
+            else
+                this.height = this.right.height + 1;
+        }
+        else if(this.left==null)
+        {
+            this.height=this.right.height+1;
+        }
+        else if(this.right==null)
+        {
+            this.height=this.left.height+1;
+        }
     }
-
     public int getValue() {
         return value;
     }
