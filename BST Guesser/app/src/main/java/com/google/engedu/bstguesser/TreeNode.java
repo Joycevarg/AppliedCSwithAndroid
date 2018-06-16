@@ -19,6 +19,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.util.Log;
 
 public class TreeNode {
     private static final int SIZE = 60;
@@ -35,6 +36,13 @@ public class TreeNode {
         showValue = false;
         left = null;
         right = null;
+    }
+    public TreeNode(TreeNode sour) {
+        this.value = sour.value;
+        this.height = sour.height;
+        showValue = false;
+        left = sour.left;
+        right = sour.right;
     }
 
     public void insert(int valueToInsert) {
@@ -54,20 +62,77 @@ public class TreeNode {
             else
                 this.right.insert(valueToInsert);
         }
+
         if (this.left != null && this.right != null)
         {
-            if (this.left.height > this.right.height)
-                this.height = this.left.height + 1;
-            else
-                this.height = this.right.height + 1;
+
+                if (this.left.height > this.right.height)
+                    this.height = this.left.height + 1;
+                else
+                    this.height = this.right.height + 1;
+
         }
         else if(this.left==null)
         {
-            this.height=this.right.height+1;
+
+                this.height=this.right.height+1;
+
         }
         else if(this.right==null)
         {
-            this.height=this.left.height+1;
+
+                this.height=this.left.height+1;
+
+        }
+
+        if (this.left != null && this.right != null)
+        {
+            int heidiff=this.right.height-this.left.height;
+            if(heidiff==2||heidiff==-2)
+            {
+                if(this.right.height==2)
+                {
+                    if(this.right.right!=null)
+                        this.leftrot();
+                    else
+                    {
+                        this.right.rightrot();;
+                        this.leftrot();
+                    }
+
+                }
+                else if(this.left.height==2)
+                {
+                    if(this.left.left!=null)
+                        this.rightrot();
+                    else
+                    {
+                        this.left.leftrot();
+                        this.rightrot();
+                    }
+                }
+                this.reCalcHeight();
+            }
+        }
+        else if(this.left==null)
+        {
+            if(this.right.height==1)
+            {
+                if(this.right.left!=null)
+                    this.right.rightrot();
+                this.leftrot();
+                this.reCalcHeight();
+            }
+        }
+        else if(this.right==null)
+        {
+            if(this.left.height==1)
+            {
+                if(this.left.right!=null)
+                    this.left.leftrot();
+                this.rightrot();
+                this.reCalcHeight();
+            }
         }
     }
     public int getValue() {
@@ -150,5 +215,59 @@ public class TreeNode {
     public void invalidate() {
         color = Color.CYAN;
         showValue = true;
+    }
+    public void leftrot()
+    {
+        TreeNode OrigPar,OrigChi;
+        OrigPar=new TreeNode(this);
+        OrigChi=new TreeNode(this.right);
+        this.value=this.right.value;
+        this.right=this.right.right;
+        this.left=OrigPar;
+        this.left.right=OrigChi.left;
+        if(this.right!=null)
+            this.right.left=null;
+
+
+    }
+
+    public void rightrot()
+    {
+        TreeNode OrigPar,OrigChi;
+        OrigPar=new TreeNode(this);
+        OrigChi=new TreeNode(this.left);
+        this.value=this.left.value;
+        this.left=this.left.left;
+        this.right=OrigPar;
+        this.right.left=OrigChi.right;
+        if(this.left!=null)
+        this.left.right=null;
+
+    }
+
+    public int reCalcHeight()
+    {
+        if(this.left==null&&this.right==null) {
+             this.height=0;
+        }
+        else if(this.left==null)
+        {
+            this.height=this.right.reCalcHeight()+1;
+        }
+        else if(this.right==null)
+        {
+            this.height=this.left.reCalcHeight()+1;
+        }
+        else
+        {
+            int lh,rh;
+            lh=this.left.reCalcHeight();
+            rh=this.right.reCalcHeight();
+            if(lh>rh)
+                this.height=lh+1;
+            else
+                this.height=rh+1;
+        }
+        return this.height;
     }
 }

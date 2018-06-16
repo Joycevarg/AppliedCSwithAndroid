@@ -18,6 +18,7 @@ package com.google.engedu.bstguesser;
 import android.content.Context;
 import android.graphics.Canvas;
 
+import android.os.CountDownTimer;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -40,6 +41,7 @@ public class BinaryTreeView extends View {
     }
 
     public void initialize() {
+
         tree = new BinarySearchTree();
         for (int value : generateRandomSequence(TREE_SIZE)) {
             tree.insert(value);

@@ -16,6 +16,8 @@
 package com.google.engedu.bstguesser;
 
 import android.graphics.Canvas;
+import android.os.CountDownTimer;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -32,9 +34,11 @@ public class BinarySearchTree {
             root = new TreeNode(value);
             return;
         } else {
-            root.insert(value);
+
+                root.insert(value);
         }
-    }
+        }
+
 
     public void positionNodes(int width) {
         if (root != null)
@@ -58,4 +62,7 @@ public class BinarySearchTree {
         TreeNode target = search(targetValue);
         target.invalidate();
     }
+
+
+
 }
