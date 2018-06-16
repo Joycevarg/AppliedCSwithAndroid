@@ -63,81 +63,66 @@ public class TreeNode {
                 this.right.insert(valueToInsert);
         }
 
-        if (this.left != null && this.right != null)
-        {
+        if (this.left != null && this.right != null) {
 
-                if (this.left.height > this.right.height)
-                    this.height = this.left.height + 1;
-                else
-                    this.height = this.right.height + 1;
+            if (this.left.height > this.right.height)
+                this.height = this.left.height + 1;
+            else
+                this.height = this.right.height + 1;
 
-        }
-        else if(this.left==null)
-        {
+        } else if (this.left == null) {
 
-                this.height=this.right.height+1;
+            this.height = this.right.height + 1;
 
-        }
-        else if(this.right==null)
-        {
+        } else if (this.right == null) {
 
-                this.height=this.left.height+1;
+            this.height = this.left.height + 1;
 
         }
+        int h=hdiff(this);
+        balanceTree(h,valueToInsert);
 
-        if (this.left != null && this.right != null)
-        {
-            int heidiff=this.right.height-this.left.height;
-            if(heidiff==2||heidiff==-2)
-            {
-                if(this.right.height==2)
-                {
-                    if(this.right.right!=null)
-                        this.leftrot();
-                    else
-                    {
-                        this.right.rightrot();;
-                        this.leftrot();
-                    }
-
-                }
-                else if(this.left.height==2)
-                {
-                    if(this.left.left!=null)
-                        this.rightrot();
-                    else
-                    {
-                        this.left.leftrot();
-                        this.rightrot();
-                    }
-                }
-                this.reCalcHeight();
-            }
-        }
-        else if(this.left==null)
-        {
-            if(this.right.height==1)
-            {
-                if(this.right.left!=null)
-                    this.right.rightrot();
-                this.leftrot();
-                this.reCalcHeight();
-            }
-        }
-        else if(this.right==null)
-        {
-            if(this.left.height==1)
-            {
-                if(this.left.right!=null)
-                    this.left.leftrot();
-                this.rightrot();
-                this.reCalcHeight();
-            }
-        }
     }
-    public int getValue() {
-        return value;
+    public void balanceTree(int h,int valueToInsert)
+    {
+        if(h<-1)
+        {
+            if(valueToInsert>right.value)
+            {leftrot();}
+            else
+            {
+                right.rightrot();
+                leftrot();
+            }
+        }
+        else if(h>1)
+        {
+            if(valueToInsert<left.value)
+            {
+                rightrot();
+            }
+            else
+            {
+                left.leftrot();
+                rightrot();
+            }
+        }
+        height=reCalcHeight();
+
     }
+    public int hdiff(TreeNode tn)
+    {
+        if(tn.left==null&&tn.right==null)
+            return 0;
+        else if(tn.left==null)
+            return 0-tn.right.height;
+        else if(tn.right==null)
+            return  tn.left.height-0;
+        else
+            return tn.left.height-tn.right.height;
+    }
+
+
     public TreeNode search(int gevalue)
     {
         if(this.value==gevalue) return this;
@@ -218,30 +203,34 @@ public class TreeNode {
     }
     public void leftrot()
     {
-        TreeNode OrigPar,OrigChi;
-        OrigPar=new TreeNode(this);
-        OrigChi=new TreeNode(this.right);
-        this.value=this.right.value;
-        this.right=this.right.right;
-        this.left=OrigPar;
-        this.left.right=OrigChi.left;
-        if(this.right!=null)
-            this.right.left=null;
-
-
+       TreeNode oriPa,oriChi,oriGC;
+       oriPa=new TreeNode(this);
+       oriChi=new TreeNode(this.right);
+       if(right.left!=null)
+       oriGC=new TreeNode(this.right.left);
+       else
+       oriGC=null;
+       oriChi.left=oriPa;
+       oriPa.right=oriGC;
+       this.value=oriChi.value;
+       this.left=oriChi.left;
+       this.right=oriChi.right;
     }
 
     public void rightrot()
     {
-        TreeNode OrigPar,OrigChi;
-        OrigPar=new TreeNode(this);
-        OrigChi=new TreeNode(this.left);
-        this.value=this.left.value;
-        this.left=this.left.left;
-        this.right=OrigPar;
-        this.right.left=OrigChi.right;
-        if(this.left!=null)
-        this.left.right=null;
+        TreeNode oriPa,oriChi,oriGC;
+        oriPa=new TreeNode(this);
+        oriChi=new TreeNode(this.left);
+        if(left.right!=null)
+            oriGC=new TreeNode(this.left.right);
+        else
+            oriGC=null;
+        oriChi.right=oriPa;
+        oriPa.left=oriGC;
+        this.value=oriChi.value;
+        this.right=oriChi.right;
+        this.left=oriChi.left;
 
     }
 
