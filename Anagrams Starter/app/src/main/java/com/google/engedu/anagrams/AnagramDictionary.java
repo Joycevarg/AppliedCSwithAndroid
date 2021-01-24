@@ -75,13 +75,7 @@ public class AnagramDictionary {
 
     }
 
-    public boolean isGoodWord(String word, String base) {
-        if(wordSet.contains(word)&&!word.contains(base))
-        return true;
-        else
-            return false;
-    }
-
+  
     public List<String> getAnagrams(String targetWord) {
         ArrayList<String> result = new ArrayList<String>();
         String sorted=sortLetters(targetWord);
